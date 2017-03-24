@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="loginForm" style="width:300px; height:200px; margin:0 auto;
+            background-color:red;">
+    </div>
+    <script>
+    /*
+      var docelowyMargin = (window.innerHeight -
+                            parseInt(document.getElementById('loginForm').style.height))/2;
+      console.log("Wysokosc wnetrza onka: "+$(window).height());
+      console.log("Wysokosc formularza: "+$('#loginForm').css('height'));
+      alert("Wysokość okna: "+window.innerHeight+"\n"+
+            "Szerokość okna: "+window.innerWidth+"\n"+
+            "Żądany margines: "+ docelowyMargin);
+      document.getElementById('loginForm').style.marginTop = docelowyMargin+"px";
+      console.log("Gorny margines formularza: "+$('#loginForm').css('margin-top'));
+*/
+      $('#loginForm').css('margin-top', ($(window).height()
+                            - parseInt($('#loginForm').css('height')))/2+"px" );
+
+    </script>
+  </body>
+<html>
