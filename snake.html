@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="hidden" id="posX" value="0">
+    <input type="hidden" id="posY" value="0">
+    <input type="hidden" id="lastDirection" value="">
+    <button onclick="gameLoop()">Start</button>
+    <script>
+      function gameLoop() {
+        setInterval(function(){
+          moveSnake($('#lastDirection').val());
+          console.log("Pozycja głowy węża: ("+$('#posX').val()+", "+$('#posY').val()+")");
+        }, 16
+      );
+      }
+      function moveSnake(direction) {
+        if(direction == 'up'){
+          $('#posY').val(parseInt($('#posY').val())-1);
+        }
+        if(direction == 'down') {
+          $('#posY').val(parseInt($('#posY').val())+1);
+        }
+        if(direction == 'left') {
+          $('#posX').val(parseInt($('#posX').val())-1);
+        }
+        if(direction == 'right') {
+          $('#posX').val(parseInt($('#posX').val())+1);
+        }
+      }
+      $(document).keydown(
+        function(event) {
+          direction = '';
+          if(event.which == 38) {
+            //console.log("Do góry");
+            $('#lastDirection').val('up');
+          }
+          if(event.which == 40) {
+            //console.log("Na dół");
+            $('#lastDirection').val('down');
+          }
+          if(event.which == 37) {
+            //console.log("W lewo");
+            $('#lastDirection').val('left');
+          }
+          if(event.which == 39) {
+            $('#lastDirection').val('right');
+          }
+        }
+      );
+    </script>
+  </body>
+<html>
